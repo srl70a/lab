@@ -1,0 +1,20 @@
+# Most basic nginx and storage yaml file
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+    method: fromcode
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+      - mountPath: /scratch
+        name: scratch-volume
+  volumes:
+    - name: scratch-volume
+      emptyDir: 
+        sizeLimit: 500Mi
+ 
